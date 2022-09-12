@@ -1,1 +1,1 @@
-[https://AndreyBravo.github.io/Markdown-&-Git/cv](https://AndreyBravo.github.io/Markdown-&-Git/cv.md)
+[https://AndreyBravo.github.io/SVCHVS/cv](https://AndreyBravo.github.io/SVCHVS/cv)
