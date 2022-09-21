@@ -17,13 +17,13 @@ business card website, Im done for three days. And sit on main project on Vue. T
 1. landing page (HTML, CSS, JS) Adaptive layout in
    Figma.
 
-This was business card website. It consisted of: navbar, switch language (en/ru) and anchor on some elements. Some animation
+* This was business card website. It consisted of: navbar, switch language (en/ru) and anchor on some elements. Some animation
 image with text. And form for send questions.
 
 2. SPA catalog on (Vue 2+Vuex), UI Vuetify with classes componets TypeScript and use Git. I solve tasks:
-   *create two new page on admin menu with REST API
-   *add new functionality, ui notification Vuetify at add/remove new article/catalog
-   *create page for error (404)
-   *many UI style fixs
-   *add adaptive for mobile
-   *add library vue-editor and change style
+   * create two new page on admin menu with REST API
+   * add new functionality, ui notification Vuetify at 
+   * create page for error (404)
+   * many UI style fixs
+   * add adaptive for mobile
+   * add library vue-editor and change style
