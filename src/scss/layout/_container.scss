@@ -1,73 +1,23 @@
-.l-grid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.l-section {
+  margin-bottom: 40px;
 }
 
-#header {
-  margin: 53px 238px;
-  display: flex;
-  background: #f9f9f9;
+.l-section:last-of-type {
+  margin-bottom: 0px;
 }
 
-#header a {
-  font-family: $base-font-gilroy;
-  font-style: normal;
-  font-weight: $base-font-weight-500;
-  font-size: $base-size-22;
-  line-height: 26px;
-  /* identical to box height */
-
-  letter-spacing: 0.05em;
-  color: #343434;
+.section__title {
+  letter-spacing: 2px;
+  color: $base-color-blue;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
-#main {
-  margin: 0 238px;
+.section__list-item {
+  margin-bottom: 40px;
 }
 
-#pagination-container {
-  display: flex;
-  align-items: center;
-  color: #5f5f5f;
-}
-
-#pagination-container button {
-  padding: 0;
-  background: none;
-  box-shadow: none;
-  font-family: $base-font-gilroy;
-  font-style: normal;
-  font-weight: $base-font-weight-500 + 200;
-  font-size: $base-size-22;
-  line-height: 27px;
-}
-
-#pagination-container .pagination-button {
-  display: flex;
-  align-items: center;
-  width: 20px;
-  color: #5f5f5f;
-}
-
-#pagination-numbers {
-  margin: 0 17px;
-  display: flex;
-  align-items: center;
-}
-
-#pagination {
-  position: absolute;
-  background: #f9f9f9;
-  position: relative;
-}
-
-#promo {
-  margin-top: 216px;
-  text-align: center;
-}
-
-#shop h1 {
-  margin-top: 123px;
-  text-align: center;
+.section__list-item:last-of-type {
+  margin-bottom: 0;
 }
