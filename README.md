@@ -1,0 +1,1 @@
+[link adaptive web-interface](https://www.figma.com/file/bSM4QhcBsTN72w7b9vv2m2/Guest-House-Copy)
