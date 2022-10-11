@@ -142,7 +142,7 @@ main {
 
 .section__title {
   letter-spacing: 2px;
-  color: #54afe4;
+  color: #df6017;
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -167,12 +167,12 @@ main {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: #c3def3;
+  background: #b68c75;
   border-radius: 20px;
   margin-right: 3px;
 }
 .skills__item .right input:checked + label {
-  background: #79a9ce;
+  background: #df6017;
 }
 
 .name {

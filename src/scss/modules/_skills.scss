@@ -14,12 +14,12 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    background: #c3def3;
+    background: $base-color-input;
     border-radius: 20px;
     margin-right: 3px;
   }
 
   input:checked + label {
-    background: #79a9ce;
+    background: $base-color-blue;
   }
 }
