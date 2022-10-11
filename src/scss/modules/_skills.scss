@@ -1,0 +1,25 @@
+.skills {
+}
+
+.skills__item {
+  margin-bottom: 10px;
+}
+
+.skills__item .right {
+  input {
+    display: none;
+  }
+
+  label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: $base-color-input;
+    border-radius: 20px;
+    margin-right: 3px;
+  }
+
+  input:checked + label {
+    background: $base-color-blue;
+  }
+}
