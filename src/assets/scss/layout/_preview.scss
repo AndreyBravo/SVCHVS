@@ -1,0 +1,48 @@
+#preview {
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  .text {
+    max-width: 1200px;
+    position: absolute;
+    top: 31%;
+    left: 8.25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    img {
+      min-width: 253px;
+    }
+
+    h2 {
+      margin-top: 34px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 53px;
+      color: #fff;
+    }
+
+    span {
+      margin-top: 33px;
+      margin-bottom: 113px;
+      color: #fff;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .img__mouse {
+      width: 39px;
+      height: 59px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  min-width: 253px;
+
+  p {
+    font-size: 15px;
+    line-height: 20px;
+    color: #fff;
+  }
+}

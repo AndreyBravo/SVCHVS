@@ -1,0 +1,24 @@
+#together {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 130px;
+}
+
+.left{
+    max-width: 552px;
+}
+
+.right {
+    max-width: 552px;
+  .l-grid-2 {
+    padding-top: 0;
+  }
+  .l-grid-item {
+    display: flex;
+    align-items: center;
+  }
+  small {
+    margin-left: 16px;
+    display: block;
+  }
+}

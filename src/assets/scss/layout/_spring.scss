@@ -1,0 +1,25 @@
+#spring {
+  background-color: #faf8f0;
+  text-align: center;
+  padding-top: 90px;
+  padding-bottom: 100px;
+
+  h3 {
+    display: inline-block;
+    max-width: 600px;
+  }
+
+  .btn-groups {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    button {
+      box-sizing: border-box;
+      padding: 13px 23px;
+      font-size: 16px;
+      line-height: 20px;
+      border: 4px solid #52503b;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.pagination {
+  padding-top: 32px;
+  display: flex;
+  overflow: hidden;
+}
+
+.pagination-item {
+  text-align: start;
+  margin-right: 20px;
+  padding: 31px;
+  min-width: 584px;
+  background-color: #fff;
+
+  h4 {
+    padding: 10px 0;
+  }
+
+  h6 {
+    margin-left: 10px;
+  }
+
+  &:nth-child(2n) {
+    height: 246px;
+  }
+
+  &:nth-child(3n) {
+    height: 206px;
+  }
+}
+
+.author {
+  margin-top: 20px;
+}
+
+.btn-group {
+  margin-top: 20px;
+  margin-right: 136px;
+  text-align: right;
+}

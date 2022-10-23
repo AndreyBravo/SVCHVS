@@ -1,0 +1,13 @@
+.l-grid-2 {
+  padding-top: 32px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.l-grid-3 {
+  padding-top: 32px;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: 1fr 1fr 1fr;
+}

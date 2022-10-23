@@ -1,0 +1,25 @@
+#escape {
+  padding-top: 95px;
+  padding-bottom: 115px;
+  .l-grid-2 {
+    gap: 35px 32px;
+    .l-grid-item {
+      display: flex;
+      align-items: flex-start;
+      img {
+        width: 54px;
+        height: 36px;
+        padding-right: 18px;
+        padding-bottom: 0;
+      }
+
+      h6 {
+        display: block;
+      }
+
+      small {
+        color: $base-color-gray;
+      }
+    }
+  }
+}
