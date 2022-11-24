@@ -1,11 +1,18 @@
 #navbar {
   display: flex;
+  margin-top: -7px;
+  margin-left: -3px;
   justify-content: space-between;
-  min-width: 253px;
+  min-width: 238px;
 
   p {
     font-size: 15px;
     line-height: 20px;
     color: #fff;
+    &:last-child{
+      margin-right: 10px;
+    }
   }
+
+
 }
