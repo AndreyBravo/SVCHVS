@@ -6,7 +6,7 @@
 
 .container {
   .text {
-    max-width: 1200px;
+    width: 80%;
     position: absolute;
     top: 31%;
     left: 8.25%;
@@ -16,15 +16,13 @@
     justify-content: center;
     text-align: center;
     img {
-      min-width: 253px;
+      max-width: 253px;
     }
 
     h2 {
       margin-top: 34px;
       font-style: normal;
       font-weight: 400;
-      font-size: 48px;
-      line-height: 53px;
       color: #fff;
     }
 
