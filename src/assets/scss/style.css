@@ -49,7 +49,6 @@ input {
 }
 
 body {
-  max-width: 1440px;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -63,6 +62,10 @@ body {
   align-items: center;
   background-color: #52503b;
   z-index: 9;
+}
+
+.img_main {
+  width: 100%;
 }
 
 #footer {
@@ -422,6 +425,49 @@ small {
   margin-right: 10px;
 }
 
+.lang a {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.lang a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.lang a:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0000b3;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.lang a:hover {
+  color: #fff;
+}
+.lang a:hover:before {
+  width: 100%;
+}
+
 .btn {
   border-style: none;
   padding: 11px 18px;
@@ -433,6 +479,7 @@ small {
   font-size: 16px;
   line-height: 20px;
   color: #52503b;
+  cursor: pointer;
 }
 
 .btn-braun {
@@ -447,6 +494,7 @@ small {
   background-color: #52503b;
   border-radius: 6px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .line {
@@ -501,4 +549,55 @@ small {
 
 .is-left {
   margin: 0 !important;
+}
+
+.btn_active {
+  color: red !important;
+}
+
+.btn-toggle {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body.dark-theme {
+  color: #eee;
+  background-color: #121212;
+}
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6,
+body.dark-theme p,
+body.dark-theme small {
+  color: #eee !important;
+}
+body.dark-theme button {
+  background-color: #121212;
+  color: #eee;
+  border: 1px solid #eee;
+}
+body.dark-theme #header {
+  background-color: #121212;
+  color: #eee;
+}
+body.dark-theme #preview__content {
+  background-color: #121212;
+}
+body.dark-theme #preview__content .content p {
+  color: #eee;
+}
+body.dark-theme #sleep, body.dark-theme #spring, body.dark-theme #footer {
+  color: #eee;
+  background-color: #121212;
+}
+body.dark-theme #comments {
+  background-color: #121212;
+}
+body.dark-theme #comments .pagination-item {
+  color: #eee;
+  background-color: #121212;
 }/*# sourceMappingURL=style.css.map */

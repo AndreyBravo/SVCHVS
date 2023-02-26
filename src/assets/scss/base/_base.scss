@@ -1,5 +1,4 @@
 body {
-  max-width: 1440px;
   font-family: $base-font;
   font-weight: 400;
 }
@@ -14,6 +13,13 @@ body {
   background-color: #52503b;
   z-index: 9;
 }
+
+.img_main {
+  
+    width: 100%;
+  
+}
+
 
 #footer {
   background-color: $base-color-braun;

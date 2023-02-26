@@ -1,3 +1,61 @@
 .is-left {
   margin: 0 !important;
 }
+.btn_active {
+  color: red !important;
+}
+
+.btn-toggle {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body.dark-theme {
+  color: #eee;
+  background-color: #121212;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  small {
+    color: #eee !important;
+  }
+
+
+
+  button {
+    background-color: #121212;
+    color: #eee;
+    border: 1px solid #eee;
+  }
+
+  #header {
+    background-color: #121212;
+    color: #eee;
+  }
+
+  #preview__content {
+    .content p {
+      color: #eee;
+    }
+    background-color: #121212;
+  }
+
+  #sleep,#spring,#footer {
+    color: #eee;
+    background-color: #121212;
+  }
+
+  #comments {
+    .pagination-item {
+      color: #eee;
+      background-color: #121212;
+    }
+    background-color: #121212;
+  }
+}
