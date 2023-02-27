@@ -68,6 +68,11 @@ body {
   width: 100%;
 }
 
+button:hover {
+  box-shadow: 1px red;
+  transform: 3s;
+}
+
 #footer {
   background-color: #52503b;
 }
@@ -123,7 +128,7 @@ small {
   max-width: 1200px;
   position: absolute;
   top: 31%;
-  left: 8.25%;
+  left: 17.25%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -417,12 +422,16 @@ small {
   min-width: 238px;
 }
 #navbar p {
+  cursor: pointer;
   font-size: 15px;
   line-height: 20px;
   color: #fff;
 }
 #navbar p:last-child {
   margin-right: 10px;
+}
+#navbar p:hover {
+  color: red;
 }
 
 .lang a {
@@ -462,7 +471,7 @@ small {
   z-index: -1;
 }
 .lang a:hover {
-  color: #fff;
+  color: #eee;
 }
 .lang a:hover:before {
   width: 100%;
@@ -481,6 +490,9 @@ small {
   color: #52503b;
   cursor: pointer;
 }
+.btn:hover {
+  color: red;
+}
 
 .btn-braun {
   border-style: none;
@@ -495,6 +507,46 @@ small {
   border-radius: 6px;
   color: #ffffff;
   cursor: pointer;
+}
+
+.btn-toggle {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-toggle:hover {
+  color: red;
+}
+
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  -webkit-animation: glowing 20s linear infinite;
+          animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
 }
 
 .line {
@@ -553,12 +605,6 @@ small {
 
 .btn_active {
   color: red !important;
-}
-
-.btn-toggle {
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 body.dark-theme {

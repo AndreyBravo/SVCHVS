@@ -20,6 +20,11 @@ body {
   
 }
 
+button:hover {
+  box-shadow: 1px red;
+  transform: 3s;
+}
+
 
 #footer {
   background-color: $base-color-braun;
