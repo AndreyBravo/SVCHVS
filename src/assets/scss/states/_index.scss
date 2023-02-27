@@ -8,7 +8,7 @@
     line-height: 63px;
   }
   h2 {
-    font-size: 31px;
+    font-size: 30px;
   }
   h3 {
     font-size: 32px;
@@ -39,7 +39,7 @@
       }
 
       img {
-        max-width: 210px;
+        width: 210px;
       }
     }
   }
@@ -144,11 +144,15 @@
         margin-bottom: 63px;
       }
     }
+
+    img{
+      max-width: 128px !important;
+    }
   }
 
   section {
-    padding-bottom: 30px;
-    padding-top: 30px;
+    padding-bottom: 32px;
+    padding-top: 32px;
   }
 
   .p-y-136 {
