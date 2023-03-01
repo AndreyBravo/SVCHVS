@@ -1,635 +1,643 @@
-"use strict";
+const keyboardLayout = [
+  [
+    {
+      code: 'Backquote',
+      func: false,
+      lang: { en: '`', ru: 'ё' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit1',
+      func: false,
+      lang: { en: '1', ru: '1' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit2',
+      func: false,
+      lang: { en: '2', ru: '2' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit3',
+      func: false,
+      lang: { en: '3', ru: '3' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit4',
+      func: false,
+      lang: { en: '4', ru: '4' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit5',
+      func: false,
+      lang: { en: '5', ru: '5' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit6',
+      func: false,
+      lang: { en: '6', ru: '6' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit7',
+      func: false,
+      lang: { en: '7', ru: '7' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit8',
+      func: false,
+      lang: { en: '8', ru: '8' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit9',
+      func: false,
+      lang: { en: '9', ru: '9' },
+      width: 'regular',
+    },
+    {
+      code: 'Digit0',
+      func: false,
+      lang: { en: '0', ru: '0' },
+      width: 'regular',
+    },
+    {
+      code: 'Minus',
+      func: false,
+      lang: { en: '-', ru: '-' },
+      width: 'regular',
+    },
+    {
+      code: 'Equal',
+      func: false,
+      lang: { en: '=', ru: '=' },
+      width: 'regular',
+    },
+    {
+      code: 'Backspace',
+      func: true,
+      lang: { en: '⌫ Back', ru: '⌫ Back' },
+      width: 'wide',
+    },
+  ],
+  [
+    {
+      code: 'Tab',
+      func: true,
+      lang: { en: '↹ Tab', ru: '↹ Tab' },
+      width: 'extra-wide',
+    },
+    {
+      code: 'KeyQ',
+      func: false,
+      lang: { en: 'q', ru: 'й' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyW',
+      func: false,
+      lang: { en: 'w', ru: 'ц' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyE',
+      func: false,
+      lang: { en: 'e', ru: 'у' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyR',
+      func: false,
+      lang: { en: 'r', ru: 'к' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyT',
+      func: false,
+      lang: { en: 't', ru: 'е' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyY',
+      func: false,
+      lang: { en: 'y', ru: 'н' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyU',
+      func: false,
+      lang: { en: 'u', ru: 'г' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyI',
+      func: false,
+      lang: { en: 'i', ru: 'ш' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyO',
+      func: false,
+      lang: { en: 'o', ru: 'щ' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyP',
+      func: false,
+      lang: { en: 'p', ru: 'з' },
+      width: 'regular',
+    },
+    {
+      code: 'BracketLeft',
+      func: false,
+      lang: { en: '[', ru: 'х' },
+      width: 'regular',
+    },
+    {
+      code: 'BracketRight',
+      func: false,
+      lang: { en: ']', ru: 'ъ' },
+      width: 'regular',
+    },
+    {
+      code: 'Backslash',
+      func: false,
+      lang: { en: '\\', ru: '\\' },
+      width: 'regular',
+    },
+  ],
+  [
+    {
+      code: 'CapsLock',
+      func: true,
+      lang: { en: 'Caps', ru: 'Caps' },
+      width: 'extra-wide',
+    },
+    {
+      code: 'KeyA',
+      func: false,
+      lang: { en: 'a', ru: 'ф' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyS',
+      func: false,
+      lang: { en: 's', ru: 'ы' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyD',
+      func: false,
+      lang: { en: 'd', ru: 'в' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyF',
+      func: false,
+      lang: { en: 'f', ru: 'а' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyG',
+      func: false,
+      lang: { en: 'g', ru: 'п' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyH',
+      func: false,
+      lang: { en: 'h', ru: 'р' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyJ',
+      func: false,
+      lang: { en: 'j', ru: 'о' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyK',
+      func: false,
+      lang: { en: 'k', ru: 'л' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyL',
+      func: false,
+      lang: { en: 'l', ru: 'д' },
+      width: 'regular',
+    },
+    {
+      code: 'Semicolon',
+      func: false,
+      lang: { en: ';', ru: 'ж' },
+      width: 'regular',
+    },
+    {
+      code: 'Quote',
+      func: false,
+      lang: { en: "'", ru: 'э' },
+      width: 'regular',
+    },
+    {
+      code: 'Enter',
+      func: true,
+      lang: { en: 'Enter', ru: 'Enter' },
+      width: 'extra-wide',
+    },
+  ],
+  [
+    {
+      code: 'ShiftLeft',
+      func: true,
+      lang: { en: 'Shift', ru: 'Shift' },
+      width: 'extra-wide',
+    },
+    {
+      code: 'KeyZ',
+      func: false,
+      lang: { en: 'z', ru: 'я' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyX',
+      func: false,
+      lang: { en: 'x', ru: 'ч' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyC',
+      func: false,
+      lang: { en: 'c', ru: 'с' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyV',
+      func: false,
+      lang: { en: 'v', ru: 'м' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyB',
+      func: false,
+      lang: { en: 'b', ru: 'и' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyN',
+      func: false,
+      lang: { en: 'n', ru: 'т' },
+      width: 'regular',
+    },
+    {
+      code: 'KeyM',
+      func: false,
+      lang: { en: 'm', ru: 'ь' },
+      width: 'regular',
+    },
+    {
+      code: 'Comma',
+      func: false,
+      lang: { en: ',', ru: 'б' },
+      width: 'regular',
+    },
+    {
+      code: 'Period',
+      func: false,
+      lang: { en: '.', ru: 'ю' },
+      width: 'regular',
+    },
+    {
+      code: 'Slash',
+      func: false,
+      lang: { en: '/', ru: '.' },
+      width: 'regular',
+    },
+    {
+      code: 'ArrowUp',
+      func: true,
+      lang: { en: '⯅', ru: '⯅' },
+      width: 'regular',
+    },
+    {
+      code: 'ShiftRight',
+      func: true,
+      lang: { en: 'Shift', ru: 'Shift' },
+      width: 'extra-wide',
+    },
+  ],
+  [
+    {
+      code: 'ControlLeft',
+      func: true,
+      lang: { en: 'Ctrl', ru: 'Ctrl' },
+      width: 'wide',
+    },
+    {
+      code: 'AltLeft',
+      func: true,
+      lang: { en: 'Alt', ru: 'Alt' },
+      width: 'wide',
+    },
+    {
+      code: 'Space',
+      func: false,
+      lang: { en: ' ', ru: ' ' },
+      width: 'ultra-wide',
+    },
+    {
+      code: 'AltRight',
+      func: true,
+      lang: { en: 'Alt', ru: 'Alt' },
+      width: 'wide',
+    },
+    {
+      code: 'ControlRight',
+      func: true,
+      lang: { en: 'Ctrl', ru: 'Ctrl' },
+      width: 'wide',
+    },
+    {
+      code: 'ArrowLeft',
+      func: true,
+      lang: { en: '⯇', ru: '⯇' },
+      width: 'regular',
+    },
+    {
+      code: 'ArrowDown',
+      func: true,
+      lang: { en: '⯆', ru: '⯆' },
+      width: 'regular',
+    },
+    {
+      code: 'ArrowRight',
+      func: true,
+      lang: { en: '⯈', ru: '⯈' },
+      width: 'regular',
+    },
+  ],
+];
 
-const Keyboard = {
-  row1: [
-    {
-      keyCode: "192",
-      name: "Backquote",
-      simbols: ["ё", "Ё", "`", "~"],
-      class: "key",
-    },
-    {
-      keyCode: "49",
-      name: "Digit1",
-      simbols: ["1", "!", "1", "!"],
-      class: "key",
-    },
-    {
-      keyCode: "50",
-      name: "Digit2",
-      simbols: ["2", '"', "2", "@"],
-      class: "key",
-    },
-    {
-      keyCode: "51",
-      name: "Digit3",
-      simbols: ["3", "№", "3", "#"],
-      class: "key",
-    },
-    {
-      keyCode: "52",
-      name: "Digit4",
-      simbols: ["4", ";", "4", "$"],
-      class: "key",
-    },
-    {
-      keyCode: "53",
-      name: "Digit5",
-      simbols: ["5", "%", "5", "%"],
-      class: "key",
-    },
-    {
-      keyCode: "54",
-      name: "Digit6",
-      simbols: ["6", ":", "6", "^"],
-      class: "key",
-    },
-    {
-      keyCode: "55",
-      name: "Digit7",
-      simbols: ["7", "?", "7", "&"],
-      class: "key",
-    },
-    {
-      keyCode: "56",
-      name: "Digit8",
-      simbols: ["8", "*", "8", "*"],
-      class: "key",
-    },
-    {
-      keyCode: "57",
-      name: "Digit9",
-      simbols: ["9", "(", "9", "("],
-      class: "key",
-    },
-    {
-      keyCode: "48",
-      name: "Digit0",
-      simbols: ["0", ")", "0", ")"],
-      class: "key",
-    },
-    {
-      keyCode: "189",
-      name: "Minus",
-      simbols: ["-", "_", "-", "_"],
-      class: "key",
-    },
-    {
-      keyCode: "187",
-      name: "Equal",
-      simbols: ["=", "+", "=", "+"],
-      class: "key",
-    },
-    {
-      keyCode: "8",
-      name: "Backspace",
-      simbols: ["Backspace", "Backspace", "Backspace", "Backspace"],
-      class: "key backspace",
-    },
-  ],
-  row2: [
-    {
-      keyCode: "9",
-      name: "Tab",
-      simbols: ["Tab", "Tab", "Tab", "Tab"],
-      class: "key tab",
-    },
-    {
-      keyCode: "81",
-      name: "KeyQ",
-      simbols: ["й", "Й", "q", "Q"],
-      class: "key",
-    },
-    {
-      keyCode: "87",
-      name: "KeyW",
-      simbols: ["ц", "Ц", "w", "W"],
-      class: "key",
-    },
-    {
-      keyCode: "69",
-      name: "KeyE",
-      simbols: ["у", "У", "e", "E"],
-      class: "key",
-    },
-    {
-      keyCode: "82",
-      name: "KeyR",
-      simbols: ["к", "К", "r", "R"],
-      class: "key",
-    },
-    {
-      keyCode: "84",
-      name: "KeyT",
-      simbols: ["е", "Е", "t", "T"],
-      class: "key",
-    },
-    {
-      keyCode: "89",
-      name: "KeyY",
-      simbols: ["н", "Н", "y", "Y"],
-      class: "key",
-    },
-    {
-      keyCode: "85",
-      name: "KeyU",
-      simbols: ["г", "Г", "u", "U"],
-      class: "key",
-    },
-    {
-      keyCode: "73",
-      name: "KeyI",
-      simbols: ["ш", "Ш", "i", "I"],
-      class: "key",
-    },
-    {
-      keyCode: "79",
-      name: "KeyO",
-      simbols: ["щ", "Щ", "o", "O"],
-      class: "key",
-    },
-    {
-      keyCode: "80",
-      name: "KeyP",
-      simbols: ["з", "З", "p", "P"],
-      class: "key",
-    },
-    {
-      keyCode: "219",
-      name: "BracketLeft",
-      simbols: ["х", "Х", "[", "{"],
-      class: "key",
-    },
-    {
-      keyCode: "221",
-      name: "BracketRight",
-      simbols: ["ъ", "Ъ", "]", "}"],
-      class: "key",
-    },
-    {
-      keyCode: "220",
-      name: "Backslash",
-      simbols: ["\\", "/", "\\", "|"],
-      class: "key",
-    },
-    {
-      keyCode: "46",
-      name: "Delete",
-      simbols: ["DEL", "DEL", "DEL", "DEL"],
-      class: "key del",
-    },
-  ],
-  row3: [
-    {
-      keyCode: "20",
-      name: "CapsLock",
-      simbols: ["CapsLock", "CapsLock", "CapsLock", "CapsLock"],
-      class: "key capslock",
-    },
-    {
-      keyCode: "65",
-      name: "KeyA",
-      simbols: ["ф", "Ф", "a", "A"],
-      class: "key",
-    },
-    {
-      keyCode: "83",
-      name: "KeyS",
-      simbols: ["ы", "Ы", "s", "S"],
-      class: "key",
-    },
-    {
-      keyCode: "68",
-      name: "KeyD",
-      simbols: ["в", "В", "d", "D"],
-      class: "key",
-    },
-    {
-      keyCode: "70",
-      name: "KeyF",
-      simbols: ["а", "А", "f", "F"],
-      class: "key",
-    },
-    {
-      keyCode: "71",
-      name: "KeyG",
-      simbols: ["п", "П", "g", "G"],
-      class: "key",
-    },
-    {
-      keyCode: "72",
-      name: "KeyH",
-      simbols: ["р", "Р", "h", "H"],
-      class: "key",
-    },
-    {
-      keyCode: "74",
-      name: "KeyJ",
-      simbols: ["о", "О", "j", "J"],
-      class: "key",
-    },
-    {
-      keyCode: "75",
-      name: "KeyK",
-      simbols: ["л", "Л", "k", "K"],
-      class: "key",
-    },
-    {
-      keyCode: "76",
-      name: "KeyL",
-      simbols: ["д", "Д", "l", "L"],
-      class: "key",
-    },
-    {
-      keyCode: "186",
-      name: "Semicolon",
-      simbols: ["ж", "Ж", ";", ":"],
-      class: "key",
-    },
-    {
-      keyCode: "222",
-      name: "Quote",
-      simbols: ["э", "Э", "'", '"'],
-      class: "key",
-    },
-    {
-      keyCode: "13",
-      name: "Enter",
-      simbols: ["ENTER", "ENTER", "ENTER", "ENTER"],
-      class: "key enter",
-    },
-  ],
-  row4: [
-    {
-      keyCode: "16",
-      name: "ShiftLeft",
-      simbols: ["Shift", "Shift", "Shift", "Shift"],
-      class: "key shift",
-    },
-    {
-      keyCode: "90",
-      name: "KeyZ",
-      simbols: ["я", "Я", "z", "Z"],
-      class: "key",
-    },
-    {
-      keyCode: "88",
-      name: "KeyX",
-      simbols: ["ч", "Ч", "x", "X"],
-      class: "key",
-    },
-    {
-      keyCode: "67",
-      name: "KeyC",
-      simbols: ["с", "С", "c", "C"],
-      class: "key",
-    },
-    {
-      keyCode: "86",
-      name: "KeyV",
-      simbols: ["м", "М", "v", "V"],
-      class: "key",
-    },
-    {
-      keyCode: "66",
-      name: "KeyB",
-      simbols: ["и", "И", "b", "B"],
-      class: "key",
-    },
-    {
-      keyCode: "78",
-      name: "KeyN",
-      simbols: ["т", "Т", "n", "N"],
-      class: "key",
-    },
-    {
-      keyCode: "77",
-      name: "KeyM",
-      simbols: ["ь", "Ь", "m", "M"],
-      class: "key",
-    },
-    {
-      keyCode: "188",
-      name: "Comma",
-      simbols: ["б", "Б", ",", "<"],
-      class: "key",
-    },
-    {
-      keyCode: "190",
-      name: "Period",
-      simbols: ["ю", "Ю", ".", ">"],
-      class: "key",
-    },
-    {
-      keyCode: "191",
-      name: "Slash",
-      simbols: [".", ",", "/", "?"],
-      class: "key",
-    },
-    {
-      keyCode: "38",
-      name: "ArrowUp",
-      simbols: ["▲", "▲", "▲", "▲"],
-      class: "key arrow",
-    },
-    {
-      keyCode: "16",
-      name: "ShiftRight",
-      simbols: ["Shift", "Shift", "Shift", "Shift"],
-      class: "key shift-right",
-    },
-  ],
-  row5: [
-    {
-      keyCode: "17",
-      name: "ControlLeft",
-      simbols: ["Ctrl", "Ctrl", "Ctrl", "Ctrl"],
-      class: "key ctrl",
-    },
-    {
-      keyCode: "91",
-      name: "MetaLeft",
-      simbols: ["Win", "Win", "Win", "Win"],
-      class: "key win",
-    },
-    {
-      keyCode: "18",
-      name: "AltLeft",
-      simbols: ["Alt", "Alt", "Alt", "Alt"],
-      class: "key alt",
-    },
-    {
-      keyCode: "32",
-      name: "Space",
-      simbols: [" ", " ", " ", " "],
-      class: "key space",
-    },
-    {
-      keyCode: "18",
-      name: "AltRight",
-      simbols: ["Alt", "Alt", "Alt", "Alt"],
-      class: "key alt",
-    },
-    {
-      keyCode: "37",
-      name: "ArrowLeft",
-      simbols: ["◄", "◄", "◄", "◄"],
-      class: "key arrow",
-    },
-    {
-      keyCode: "40",
-      name: "ArrowDown",
-      simbols: ["▼", "▼", "▼", "▼"],
-      class: "key arrow",
-    },
-    {
-      keyCode: "39",
-      name: "ArrowRight",
-      simbols: ["►", "►", "►", "►"],
-      class: "key arrow",
-    },
-    {
-      keyCode: "17",
-      name: "ControlRight",
-      simbols: ["Ctrl", "Ctrl", "Ctrl", "Ctrl"],
-      class: "key ctrl",
-    },
-  ],
-};
+const keyboardKeys = {};
+const keyboardFragment = document.createDocumentFragment();
 
-function init() {
-  let line,
-    lang = localStorage.getItem("lang"),
-    on = " on",
-    off = " off";
-  if (lang == "ru") {
-    (on = " off"), (off = " on");
+keyboardLayout.forEach((line) => {
+  const keyboardRow = document.createElement('div');
+  keyboardRow.classList.add('keyboard__row');
+
+  line.forEach((key) => {
+    keyboardKeys[key.code] = key.lang;
+    keyboardKeys[key.code].func = key.func;
+
+    const keyElement = document.createElement('button');
+    keyElement.setAttribute('id', key.code);
+    keyElement.setAttribute('type', 'button');
+    keyElement.classList.add('keyboard__key');
+    keyElement.classList.add(`keyboard__key_${key.width}`);
+
+    keyElement.textContent = key.lang.en;
+    keyboardRow.appendChild(keyElement);
+  });
+
+  keyboardFragment.appendChild(keyboardRow);
+});
+
+class Keyboard {
+  constructor() {
+    this.caps = false;
+    this.lang = localStorage.getItem('lang');
   }
-  const wrapper = document.createElement("div"),
-    input = document.createElement("textarea"),
-    keyboardDiv = document.createElement("div"),
-    key = document.createElement("div");
-  wrapper.className = "wrapper";
-  document.body.append(wrapper);
-  input.setAttribute("id", "result");
-  input.setAttribute("cols", 60);
-  input.setAttribute("rows", 6);
-  wrapper.appendChild(input);
-  keyboardDiv.className = "keyboard";
-  wrapper.appendChild(keyboardDiv);
-  for (line in Keyboard) {
-    let row = document.createElement("div");
-    row.className = "row";
-    keyboardDiv.appendChild(row);
 
-    for (let i = 0; i < Keyboard[line].length; i++) {
-      let container = document.createElement("div");
-      container.className = Keyboard[line][i]["class"];
-      container.innerHTML =
-        '<span class="' +
-        Keyboard[line][i]["name"] +
-        off +
-        '"><span class="case down">' +
-        Keyboard[line][i]["simbols"][0] +
-        "</span>" +
-        '<span class="case up">' +
-        Keyboard[line][i]["simbols"][1] +
-        "</span>";
-      container.innerHTML +=
-        '<span class="' +
-        Keyboard[line][i]["name"] +
-        on +
-        '"><span class="case down">' +
-        Keyboard[line][i]["simbols"][2] +
-        "</span>" +
-        '<span class="case up">' +
-        Keyboard[line][i]["simbols"][3] +
-        "</span>";
-      row.appendChild(container);
+  init() {
+    this.wrapper = document.createElement('main');
+    this.text = document.createElement('textarea');
+    this.keyboard = document.createElement('div');
+    this.language = document.createElement('p');
+
+    this.wrapper.classList.add('wrapper');
+
+    this.text.autofocus = true;
+    this.text.classList.add('text');
+
+    this.keyboard.classList.add('keyboard');
+
+    this.language.classList.add('info');
+    this.language.textContent = 'смена языка ENG/РУС Shift+Alt.';
+
+    this.keyboard.appendChild(keyboardFragment);
+    this.showLanguage(this.lang);
+
+    this.wrapper.appendChild(this.text);
+    this.wrapper.appendChild(this.keyboard);
+    this.wrapper.appendChild(this.language);
+
+    document.body.appendChild(this.wrapper);
+
+    this.createListeners();
+  }
+
+  createListeners() {
+    this.text.addEventListener('blur', () => {
+        this.text.focus();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      e.stopImmediatePropagation();
+
+      const key = document.getElementById(e.code);
+
+      if (!key) {
+        e.preventDefault();
+        return;
+      }
+
+      if (e.code === 'CapsLock' && !e.repeat) {
+        e.preventDefault();
+        this.caps = !this.caps;
+
+        const addRemove = this.caps ? 'add' : 'remove';
+        key.classList[addRemove]('active');
+
+        this.switchCaps(e.shiftKey);
+      } else {
+        key.classList.add('active');
+
+        if (e.altKey && e.shiftKey && !e.repeat) {
+          e.preventDefault();
+          this.lang = this.lang === 'ru' ? 'en' : 'ru';
+          localStorage.setItem('lang', this.lang);
+          this.showLanguage(this.lang, e.shiftKey);
+        } else if (!keyboardKeys[e.code].func) {
+          e.preventDefault();
+          this.insertText(key.textContent);
+        } else if (e.key === 'Shift' && !e.repeat) {
+          e.preventDefault();
+          this.switchCaps(e.shiftKey);
+        } else if (e.code === 'Tab') {
+          e.preventDefault();
+          this.insertText('\t');
+        } else if (e.code === 'Enter') {
+          e.preventDefault();
+          this.insertText('\n');
+        } else if (e.code === 'Backspace') {
+          e.preventDefault();
+          this.pressBackspace();
+        } else if (e.code === 'ArrowUp' && !e.isTrusted) {
+          this.arrowUp();
+        } else if (e.code === 'ArrowDown' && !e.isTrusted) {
+          this.arrowDown();
+        } else if (e.code === 'ArrowLeft' && !e.isTrusted) {
+          this.arrowLeft();
+        } else if (e.code === 'ArrowRight' && !e.isTrusted) {
+          this.arrowRight();
+        }
+      }
+    });
+
+    document.addEventListener('keyup', (e) => {
+      e.stopImmediatePropagation();
+
+      const key = document.getElementById(e.code);
+      if (!key) {
+        e.preventDefault();
+        return;
+      }
+
+      if (e.code !== 'CapsLock') {
+        key.classList.remove('active');
+        if (e.key === 'Shift') {
+          e.preventDefault();
+          this.switchCaps(e.shiftKey);
+        }
+      }
+    });
+
+    this.keyboard.addEventListener('click', (e) => {
+      this.text.focus();
+      const eventKeyDown = new KeyboardEvent('keydown', {
+        bubbles: true,
+        cancelable: true,
+        code: e.target.id,
+        view: window,
+      });
+      document.dispatchEvent(eventKeyDown);
+
+      this.text.focus();
+      const eventKeyUp = new KeyboardEvent('keyup', {
+        bubbles: true,
+        cancelable: true,
+        code: e.target.id,
+        view: window,
+      });
+      document.dispatchEvent(eventKeyUp);
+    });
+  }
+
+  arrowUp() {
+    this.text.selectionStart = 0;
+    this.text.selectionEnd = this.text.selectionStart;
+  }
+
+  arrowDown() {
+    this.text.selectionEnd = this.text.textLength;
+    this.text.selectionStart = this.text.selectionEnd;
+  }
+
+  arrowLeft() {
+    this.text.selectionStart = Math.max(0, this.text.selectionStart - 1);
+    this.text.selectionEnd = this.text.selectionStart;
+  }
+
+  arrowRight() {
+    this.text.selectionStart = Math.min(
+      this.text.textLength,
+      this.text.selectionEnd + 1,
+    );
+    this.text.selectionEnd = this.text.selectionStart;
+  }
+
+  insertText(chars) {
+    const cursorAt = this.text.selectionStart;
+
+    this.text.value =
+      this.text.value.slice(0, cursorAt) +
+      chars +
+      this.text.value.slice(this.text.selectionEnd);
+
+    this.text.selectionStart = cursorAt + chars.length;
+    this.text.selectionEnd = this.text.selectionStart;
+  }
+  
+  pressBackspace() {
+    if (this.text.selectionStart !== this.text.selectionEnd) {
+      this.insertText('');
+    } else {
+      const cursorAt = Math.max(0, this.text.selectionStart - 1);
+
+      this.text.value =
+        this.text.value.slice(0, cursorAt) +
+        this.text.value.slice(this.text.selectionEnd);
+
+      this.text.selectionStart = cursorAt;
+      this.text.selectionEnd = this.text.selectionStart;
     }
+  }
+
+  showLanguage(lang, shift = false) {
+    Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach(
+      (e) => {
+        e.textContent = keyboardKeys[e.id][lang];
+      },
+    );
+
+    this.switchCaps(shift);
+  }
+
+  switchCaps(shiftKey) {
+    const showUpperCase = (this.caps && !shiftKey) || (!this.caps && shiftKey);
+    const toCase = showUpperCase ? 'toUpperCase' : 'toLowerCase';
+    Array.from(this.keyboard.querySelectorAll('.keyboard__key')).forEach(
+      (e) => {
+        if (!keyboardKeys[e.id].func) {
+          if (e.id === 'Backquote' && this.lang === 'en') {
+            e.textContent = shiftKey ? '~' : '`';
+          } else if (e.id === 'Minus') {
+            e.textContent = shiftKey ? '_' : '-';
+          } else if (e.id === 'Equal') {
+            e.textContent = shiftKey ? '+' : '=';
+          } else if (e.id === 'BracketLeft' && this.lang === 'en') {
+            e.textContent = shiftKey ? '{' : '[';
+          } else if (e.id === 'BracketRight' && this.lang === 'en') {
+            e.textContent = shiftKey ? '}' : ']';
+          } else if (e.id === 'Backslash' && this.lang === 'en') {
+            e.textContent = shiftKey ? '|' : '\\';
+          } else if (e.id === 'Semicolon' && this.lang === 'en') {
+            e.textContent = shiftKey ? ':' : ';';
+          } else if (e.id === 'Quote' && this.lang === 'en') {
+            e.textContent = shiftKey ? '"' : "'";
+          } else if (e.id === 'Comma' && this.lang === 'en') {
+            e.textContent = shiftKey ? '<' : ',';
+          } else if (e.id === 'Period' && this.lang === 'en') {
+            e.textContent = shiftKey ? '>' : '.';
+          } else if (e.id === 'Slash' && this.lang === 'en') {
+            e.textContent = shiftKey ? '?' : '/';
+          } else if (e.id === 'Slash' && this.lang === 'ru') {
+            e.textContent = shiftKey ? ',' : '.';
+          } else {
+            e.textContent = e.textContent[toCase]();
+          }
+        }
+      },
+    );
   }
 }
 
-init();
-
-let pressed = new Set(),
-  capslock = false;
-
-window.addEventListener("keydown", function (EO) {
-  EO = EO || window.event;
-  // EO.preventDefault();
-  let el,
-    key,
-    textarea = document.getElementById("result"),
-    lang = localStorage.getItem("lang"),
-    divs;
-  pressed.add(EO.key);
-  if (pressed.has("Shift") && pressed.has("Alt")) {
-    lang = lang == "en" ? "ru" : "en";
-    localStorage.setItem("lang", lang);
-    let divs = document.getElementsByClassName("key");
-    for (let cell of divs) {
-      let className = cell.firstChild.className;
-      cell.firstChild.className = cell.lastChild.className;
-      cell.lastChild.className = className;
-    }
-  }
-
-  switch (EO.key) {
-    case "Alt":
-    case "Meta":
-    case "Control":
-    case "ArrowUp":
-    case "ArrowRight":
-    case "ArrowDown":
-    case "ArrowLeft":
-      break;
-    case "Delete":
-      break;
-    case "CapsLock":
-      divs = document.getElementsByClassName("case");
-      for (let cell of divs) {
-        cell.className = cell.className == "case up" ? "case down" : "case up";
-      }
-      capslock = !capslock;
-      break;
-    case "Tab":
-      textarea.value += "     ";
-      break;
-    case "Backspace":
-      textarea.value = textarea.value.substring(0, textarea.value.length - 1);
-      break;
-    case " ":
-      textarea.value += " ";
-      break;
-    case "Enter":
-      textarea.value += "\n";
-      break;
-    case "Shift":
-      divs = document.getElementsByClassName("case");
-      for (let cell of divs) {
-        cell.className = cell.className == "case up" ? "case down" : "case up";
-      }
-      break;
-    default:
-      let strTextArea;
-      for (el in Keyboard) {
-        for (let i = 0; i < Keyboard[el].length; i++) {
-          if (EO.keyCode == Keyboard[el][i]["keyCode"]) {
-            if (
-              (!pressed.has("Shift") && capslock) ||
-              (pressed.has("Shift") && !capslock)
-            ) {
-              strTextArea =
-                lang == "en"
-                  ? Keyboard[el][i]["simbols"][3]
-                  : Keyboard[el][i]["simbols"][1];
-            } else if (
-              (!pressed.has("Shift") && !capslock) ||
-              (pressed.has("Shift") && capslock)
-            ) {
-              strTextArea =
-                lang == "en"
-                  ? Keyboard[el][i]["simbols"][2]
-                  : Keyboard[el][i]["simbols"][0];
-            }
-            textarea.value += strTextArea;
-          }
-        }
-      }
-      break;
-  }
-
-  key = document.getElementsByClassName(EO.code);
-  if (key[0].parentNode.className.indexOf(" active") == -1) {
-    let str = key[0].parentNode.className + " active";
-    key[0].parentNode.className = str;
-  }
-});
-
-window.addEventListener("keyup", function (EO) {
-  EO = EO || window.event;
-  EO.preventDefault();
-  let el,
-    key,
-    textarea = document.getElementById("result");
-  for (el in Keyboard) {
-    for (let i = 0; i < Keyboard[el].length; i++) {}
-  }
-
-  switch (EO.key) {
-    case "Shift":
-      let divs = document.getElementsByClassName("case");
-      for (let cell of divs) {
-        cell.className = cell.className == "case up" ? "case down" : "case up";
-      }
-      break;
-  }
-
-  key = document.getElementsByClassName(EO.code);
-  let str = key[0].parentNode.className;
-  key[0].parentNode.className = str.replace(" active", "");
-  if (EO.key !== "Shift" && pressed.has("Shift")) {
-    pressed.clear();
-    pressed.add("Shift");
-  } else {
-    pressed.clear();
-  }
-});
-
-window.addEventListener("click", function (EO) {
-  EO = EO || window.event;
-  // EO.preventDefault();
-  let textarea = document.getElementById("result");
-  //console.log(EO.target +'  '+ EO.target.innerText +'  '+ EO.target.className);
-  // console.log(EO.target.className.indexOf("key"));
-  // console.log(EO.target.className);
-  if (
-    EO.target.className == "case down" ||
-    (EO.target.className.indexOf("key") == 0 &&
-      EO.target.className.indexOf("keyboard") == -1)
-  ) {
-    console.log(EO.target.innerText );
-    switch (EO.target.innerText) {
-      case "ENTER":
-        textarea.value += "\n";
-        break;
-      case "Backspace":
-        textarea.value = textarea.value.substring(0, textarea.value.length - 1);
-        break;
-      case "":
-        textarea.value += " ";
-        break;
-      case "DEL":
-      case "Shift":
-        let divs = document.getElementsByClassName("case");
-        for (let cell of divs) {
-          cell.className = cell.className == "case up" ? "case down" : "case up";
-        }
-        break;
-      case "Ctrl":
-      case "Alt":
-      case "◄":
-          textarea.setSelectionRange(textarea.value.length - 1, textarea.value.length- 2);
-          console.log(textarea.value.length - 1);
-          break;
-      case "▼":
-      case "►":
-      case "▲":
-      case "Win":
-          break;
-      case "CapsLock":
-        let divss = document.getElementsByClassName("case");
-        for (let cell of divss) {
-          cell.className = cell.className == "case up" ? "case down" : "case up";
-        }
-        capslock = !capslock;
-        break;
-      case "Tab":
-        textarea.value += "   ";
-        break;
-      default:
-        textarea.value += EO.target.innerText;
-    }
-  }
+window.addEventListener('DOMContentLoaded', () => {
+  const keyboard = new Keyboard();
+  keyboard.init();
 });
