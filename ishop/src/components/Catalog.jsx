@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { SneakerCard } from './SneakerCard';
+import { TCard } from './TCard';
 import '../index.css';
 
-const Catalog = ({sneakersData, setSneakersData}) =>{
+export const Catalog = ({TData, setTData}) =>{
     const [selectedCard, setSelectedCard] = useState(0);
     
     return(
         <div className="ishop-catalog">
-            {sneakersData.map((sneaker) =>
-                <SneakerCard 
-                key={sneaker.id}
-                sneakersData={sneakersData}
-                setSneakersData={setSneakersData}
-                sneaker={sneaker}
+            {TData.map((tshort) =>
+                <TCard 
+                key={tshort.id}
+                TData={TData}
+                setTData={setTData}
+                tshort={tshort}
                 selectedCard={selectedCard}
                 setSelectedCard={setSelectedCard}
                 />
@@ -20,5 +20,3 @@ const Catalog = ({sneakersData, setSneakersData}) =>{
         </div>
     );
 }
-
-export { Catalog };

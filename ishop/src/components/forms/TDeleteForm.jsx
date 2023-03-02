@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../../index.css";
 
-const DeleteSneaker = ({sneakersData, setSneakersData , sneakerId, active, setActive}) =>{
+export const TDeleteForm = ({TData, setTData , Tid, active, setActive}) =>{
     useEffect(() => {
         if(active){
             document.getElementById('root').style.pointerEvents = "none";
@@ -12,10 +12,10 @@ const DeleteSneaker = ({sneakersData, setSneakersData , sneakerId, active, setAc
     }, [active])
 
     const handleSubmit = (event) =>{
-        const newSneakersData = Object.assign([], sneakersData).filter((sneaker) => sneaker.id !== sneakerId);
+        const newTData = Object.assign([], TData).filter((tshort) => tshort.id !== Tid);
 
         setActive(false);
-        setSneakersData(newSneakersData);
+        setTData(newTData);
         
         event.preventDefault();
     }
@@ -28,7 +28,7 @@ const DeleteSneaker = ({sneakersData, setSneakersData , sneakerId, active, setAc
     }
 
     return(
-        <div className={"delete-sneaker-form" + (active ? " delete-sneaker-form-active" : "")} >
+        <div className={"delete-tshort-form" + (active ? " delete-tshort-form-active" : "")} >
             <p>Are you sure about removing?</p>
             <form onSubmit={handleSubmit}>
                 <input type="submit" value="Yes" />
@@ -38,4 +38,3 @@ const DeleteSneaker = ({sneakersData, setSneakersData , sneakerId, active, setAc
     );
 }
 
-export { DeleteSneaker };

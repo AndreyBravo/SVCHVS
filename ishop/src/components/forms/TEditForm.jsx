@@ -1,68 +1,60 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../index.css";
 
-const AddSneaker = ({active, setActive, sneakersData, setSneakersData}) =>{
-    const [photo, setPhoto] = useState("");
-    const [name, setName] = useState("");
-    const [cost, setCost] = useState(0);
-    const [count, setCount] = useState(0);
-    const [formValid, setFormValid] = useState(false);
+export const TEditForm = ({selectedCard, TData, setTData , Tid, active, setActive}) =>{
+    const oldSneaker = Object.assign([], TData).find((sneaker) => sneaker.id === Tid)
+
+    const [photo, setPhoto] = useState(oldSneaker.photo);
+    const [name, setName] = useState(oldSneaker.name);
+    const [cost, setCost] = useState(oldSneaker.cost);
+    const [count, setCount] = useState(oldSneaker.count);
+    const [formValid, setFormValid] = useState(true);
 
     const [photoDirty, setPhotoDirty] = useState(false);
     const [nameDirty, setNameDirty] = useState(false);
     const [costDirty, setCostDirty] = useState(false);
     const [countDirty, setCountDirty] = useState(false);
-
-    const [photoError, setPhotoError] = useState("No photo selected");
-    const [nameError, setNameError] = useState("Name is empty");
-    const [costError, setCostError] = useState("Cost is empty");
-    const [countError, setCountError] = useState("Count is empty");
+    
+    const [photoError, setPhotoError] = useState("");
+    const [nameError, setNameError] = useState("");
+    const [costError, setCostError] = useState("");
+    const [countError, setCountError] = useState("");
 
     useEffect(() => {
-        if(photoError || nameError || costError || countError){
-            setFormValid(false);
-        }
-        else{
-            setFormValid(true);
-        }
-
-        if(active){
+        if(photoDirty || nameDirty || costDirty || countDirty){
             document.getElementById('root').style.pointerEvents = "none";
         }
         else{
             document.getElementById('root').style.pointerEvents = "all";
         }
-    }, [photoError, nameError, costError, countError, active])
+
+        if(selectedCard != Tid){
+            setActive(false);
+        }
+    }, [selectedCard, photoDirty, nameDirty, costDirty, countDirty]);
+
+    const handleCancelClick = () =>{
+        setActive(false);
+        document.getElementById('root').style.pointerEvents = "all";
+    }
 
     const handleSubmit = (event) => {
-        const newSneakerData = Object.assign([], sneakersData);
-        const newSneaker = {
-            "id": sneakersData.length + 1,
+        const editSneakersData = Object.assign([], TData);
+        const editSneaker = {
+            "id": oldSneaker.id,
             "name": name,
             "cost": cost,
             "photo": photo,
             "count": count
         }
+
+        editSneakersData.splice(editSneakersData.indexOf(oldSneaker), 1, editSneaker);
         
-        newSneakerData.push(newSneaker);
-        
-        setSneakersData(newSneakerData);
+        setTData(editSneakersData);
+
+        document.getElementById('root').style.pointerEvents = "all";
 
         setActive(false);
-        setPhoto("");
-        setName("");
-        setCost(0);
-        setCount(0);
-        
-        setPhotoDirty(false);
-        setNameDirty(false);
-        setCostDirty(false);
-        setCountDirty(false);
-        
-        setPhotoError("Photo is empty");
-        setNameError("Name is empty");
-        setCostError("Cost is empty");
-        setCountError("Count is empty");
 
         event.preventDefault();
     }
@@ -87,9 +79,7 @@ const AddSneaker = ({active, setActive, sneakersData, setSneakersData}) =>{
     }
 
     const handlePhotoChange = (event) =>{
-        console.log(event.target);
-
-        setPhoto(event.target.value);
+        setPhoto("" + event.target.value);
 
         if(event.target.value){
             setPhotoError("");
@@ -102,14 +92,17 @@ const AddSneaker = ({active, setActive, sneakersData, setSneakersData}) =>{
     const handleNameChange = (event) =>{
         setName(event.target.value);
 
-        if(sneakersData.find((sneaker) => sneaker.name === event.target.value) !== undefined){
+        if(TData.find((sneaker) => sneaker.name === event.target.value) !== undefined){
             setNameError("Name already exists");
+            setFormValid(false);
         }
         else if(!event.target.value){
             setNameError("Name is empty");
+            setFormValid(false);
         }
         else{
             setNameError("");
+            setFormValid(true);
         }
     }
 
@@ -118,9 +111,11 @@ const AddSneaker = ({active, setActive, sneakersData, setSneakersData}) =>{
 
         if(event.target.value){
             setCostError("");
+            setFormValid(true);
         }
         else{
             setCostError("Cost is empty");
+            setFormValid(false);
         }
     }
 
@@ -129,21 +124,19 @@ const AddSneaker = ({active, setActive, sneakersData, setSneakersData}) =>{
 
         if(event.target.value){
             setCountError("");
+            setFormValid(true);
         }
         else{
             setCountError("Count is empty");
+            setFormValid(false);
         }
-    }
-    
-    const handleCancelClick = () =>{
-        setActive(false);
     }
 
     return(
-        <form className={"add-sneaker-form" + (active ? " add-sneaker-form-active" : "" )} onSubmit={handleSubmit}>
+        <form className={"edit-tshort-form" + (active ? " edit-tshort-form-active" : "" )} onSubmit={handleSubmit}>
             <div>
                 <input className="input-photo" type="text" name="photo" value={photo} placeholder="Enter photo path"
-                onChange={handlePhotoChange} onBlur={handleBlur} />
+                    onChange={handlePhotoChange} onBlur={handleBlur} />
                 {(photoDirty && photoError) && <p>{photoError}</p>}
             </div>
             <div>
@@ -163,11 +156,10 @@ const AddSneaker = ({active, setActive, sneakersData, setSneakersData}) =>{
                 onBlur={handleBlur} onChange={handleCountChange}/>
                 {(countDirty && countError) && <p>{countError}</p>}
             </div>
-            <input className="input-submit" disabled={!formValid} type="submit" value="Add" 
+            <input className="input-submit" disabled={!formValid} type="submit" value="Save" 
             style={(!formValid) ? {cursor: "not-allowed"} : {}} />
             <input className="input-cancel" type="button" value="Cancel" onClick={handleCancelClick} />
         </form>
     );
 }
 
-export { AddSneaker };
